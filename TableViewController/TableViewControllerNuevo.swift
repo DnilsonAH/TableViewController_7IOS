@@ -7,16 +7,48 @@
 
 import UIKit
 
+/*
+class TableViewCellNuevo:UITableViewCell{
+    @IBOutlet weak var etiqueta: UILabel!
+    @IBOutlet weak var imagenNumeros: UIImageView!
+}
+*/
 class TableViewControllerNuevo: UITableViewController {
+    // Acciones personalizadas al deslizar una fila (Eliminar, Insertar) usando UIContextualAction (iOS 11+)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let eliminarAction = UIContextualAction(style: .destructive, title: "Eliminar") { (action, view, completionHandler) in
+            self.arregloNumeros.remove(at: indexPath.row)
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        eliminarAction.backgroundColor = UIColor.red
+
+        let insertarAction = UIContextualAction(style: .normal, title: "Insertar") { (action, view, completionHandler) in
+            let ultimoElemento = self.arregloNumeros[self.arregloNumeros.count - 1]
+            self.arregloNumeros.append(String(Int(ultimoElemento)! + 1))
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        insertarAction.backgroundColor = UIColor.green
+
+        let configuration = UISwipeActionsConfiguration(actions: [eliminarAction, insertarAction])
+        return configuration
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.isEditing = true
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setEditing(true, animated: true)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if (self.isEditing) {
+            self.editButtonItem.title = "Editar"
+        } else {
+            self.editButtonItem.title = "Hecho"
+        }
     }
 
     // MARK: - Table view data source
@@ -57,6 +89,19 @@ class TableViewControllerNuevo: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let valorSeleccionado = indexPath.row
+        self.performSegue(withIdentifier: "pantallaDosSegue", sender: valorSeleccionado)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pantallaDosSegue" {
+            let valorRecibido = sender as? Int
+            let pantalla2: ViewControllerVer = segue.destination as! ViewControllerVer
+            pantalla2.valorRecibido = arregloNumeros[valorRecibido!]
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -77,6 +122,7 @@ class TableViewControllerNuevo: UITableViewController {
             // array, and add a new row to the table view
         }
     }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -85,12 +131,29 @@ class TableViewControllerNuevo: UITableViewController {
     }
     */
 
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let objetoMovido = self.arregloNumeros[fromIndexPath.row]
+        arregloNumeros.remove(at: fromIndexPath.row)
+        arregloNumeros.insert(objetoMovido, at: to.row)
+        NSLog("%@", "\(fromIndexPath.row) => \(to.row) \(arregloNumeros)")
+    }
+
+    // Permite que todas las filas sean movibles
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         self.tableView.isEditing = true
+     }
+
     */
 
     /*

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042CD2A72E0C92AA0039A415 /* ICONS in Resources */ = {isa = PBXBuildFile; fileRef = 042CD2A62E0C92AA0039A415 /* ICONS */; };
 		04AFE8FD2DFA2D9000E0C7BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE8FC2DFA2D9000E0C7BC /* AppDelegate.swift */; };
 		04AFE8FF2DFA2D9000E0C7BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE8FE2DFA2D9000E0C7BC /* SceneDelegate.swift */; };
 		04AFE9042DFA2D9000E0C7BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFE9022DFA2D9000E0C7BC /* Main.storyboard */; };
@@ -14,9 +15,11 @@
 		04AFE9092DFA2D9100E0C7BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFE9072DFA2D9100E0C7BC /* LaunchScreen.storyboard */; };
 		04AFE9112DFA2EC000E0C7BC /* TableViewControllerNuevo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE9102DFA2EC000E0C7BC /* TableViewControllerNuevo.swift */; };
 		04AFE9132DFA30C800E0C7BC /* ICONOS in Resources */ = {isa = PBXBuildFile; fileRef = 04AFE9122DFA30C800E0C7BC /* ICONOS */; };
+		04B74FCF2E149A9B0032E5FA /* ViewControllerVer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B74FCE2E149A9B0032E5FA /* ViewControllerVer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042CD2A62E0C92AA0039A415 /* ICONS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ICONS; path = ../../ICONS; sourceTree = "<group>"; };
 		04AFE8F92DFA2D9000E0C7BC /* TableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AFE8FC2DFA2D9000E0C7BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04AFE8FE2DFA2D9000E0C7BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		04AFE90A2DFA2D9100E0C7BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AFE9102DFA2EC000E0C7BC /* TableViewControllerNuevo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerNuevo.swift; sourceTree = "<group>"; };
 		04AFE9122DFA30C800E0C7BC /* ICONOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ICONOS; path = ../../../Downloads/ICONOS; sourceTree = "<group>"; };
+		04B74FCE2E149A9B0032E5FA /* ViewControllerVer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 		04AFE8FB2DFA2D9000E0C7BC /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				042CD2A62E0C92AA0039A415 /* ICONS */,
 				04AFE9122DFA30C800E0C7BC /* ICONOS */,
 				04AFE8FC2DFA2D9000E0C7BC /* AppDelegate.swift */,
 				04AFE8FE2DFA2D9000E0C7BC /* SceneDelegate.swift */,
 				04AFE9102DFA2EC000E0C7BC /* TableViewControllerNuevo.swift */,
 				04AFE9022DFA2D9000E0C7BC /* Main.storyboard */,
+				04B74FCE2E149A9B0032E5FA /* ViewControllerVer.swift */,
 				04AFE9052DFA2D9100E0C7BC /* Assets.xcassets */,
 				04AFE9072DFA2D9100E0C7BC /* LaunchScreen.storyboard */,
 				04AFE90A2DFA2D9100E0C7BC /* Info.plist */,
@@ -130,6 +136,7 @@
 			files = (
 				04AFE9092DFA2D9100E0C7BC /* LaunchScreen.storyboard in Resources */,
 				04AFE9132DFA30C800E0C7BC /* ICONOS in Resources */,
+				042CD2A72E0C92AA0039A415 /* ICONS in Resources */,
 				04AFE9062DFA2D9100E0C7BC /* Assets.xcassets in Resources */,
 				04AFE9042DFA2D9000E0C7BC /* Main.storyboard in Resources */,
 			);
@@ -144,6 +151,7 @@
 			files = (
 				04AFE9112DFA2EC000E0C7BC /* TableViewControllerNuevo.swift in Sources */,
 				04AFE8FD2DFA2D9000E0C7BC /* AppDelegate.swift in Sources */,
+				04B74FCF2E149A9B0032E5FA /* ViewControllerVer.swift in Sources */,
 				04AFE8FF2DFA2D9000E0C7BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
